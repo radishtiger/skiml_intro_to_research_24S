@@ -98,7 +98,7 @@ def run(config, project_name = 'wandb_tutorial_test'):
         model = MLPNet().to(device)      
         wandb.log({'Total Params': 53018})
   
-    model.load_state_dict(torch.load('Best_Model.pth', map_location=device))
+    model.load_state_dict(torch.load('checkpoints/Best_Model.pth', map_location=device))
     model.eval()
     val_loss, val_acc, _, _, _ = model_evaluate(model, test_loader, criterion, device)
 
